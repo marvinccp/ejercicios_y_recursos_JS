@@ -41,25 +41,25 @@ const distTwoPoints = (lat1, lon1, lat2, lon2) => {
   return earthRadius * c;
 };
 
+//recibir los datos de los input y pasarlos directo a la formula
 const getResult = () => {
-    let lat1 = document.getElementById("lat1").value;
-    let lon1 = document.getElementById("lon1").value;
-    let lat2 = document.getElementById("lat2").value;
-    let lon2 = document.getElementById("lon2").value;
-  //   console.log(lat1, lon1, lat2, lon2);
-  //   return distTwoPoints(
-  //     19.416326917410476,
-  //     -99.12479042256915,
-  //     23.097069089850933,
-  //     -82.35006433419622
-  //   );
+  let lat1 = document.getElementById("lat1").value;
+  let lon1 = document.getElementById("lon1").value;
+  let lat2 = document.getElementById("lat2").value;
+  let lon2 = document.getElementById("lon2").value;
+
   return distTwoPoints(lat1, lon1, lat2, lon2);
 };
 
-const result = document.getElementById('result')
 
+//Aqui se activa la magia!!!!
 const btn = document.getElementById("btn").addEventListener("click", () => {
   const result1 = getResult();
-  result.textContent = result1
+
+  let cityOne = document.getElementById("city1").value;
+  let cityTwo = document.getElementById("city2").value;
+  let textResult = document.getElementById("text-result");
+
+  textResult.textContent = `La distancia entre ${cityOne} y ${cityTwo} es: ${result1}`;
   console.log(result1);
 });
