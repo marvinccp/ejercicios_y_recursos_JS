@@ -9,18 +9,24 @@
     <title>Distancia entre 2 coordenadas</title>
   </head>
   <body>
-    <section>
-      <h2>Distancia entre 2 puntos</h2>
+    <div class="title-container">
+      <h2>Calcular la distancia entre 2 puntos con JS</h2>
+      <h3>Ecuación de Haversine</h3>
+    </div>
+    <section class="exercise-container">
+      <picture class="image-container">
+        <img src="./images/earth.png" alt="" />
+      </picture>
       <div class="container">
-        <input id="city1" type="text" placeholder="Ciudad 1"/>
-        <input id="lat1" type="text" class="input" placeholder="Latitud"/>
+        <input id="city1" type="text" placeholder="Ciudad 1" />
+        <input id="lat1" type="text" class="input" placeholder="Latitud" />
         <input id="lon1" type="text" class="input" placeholder="Longitud" />
-        <input id="city2" type="text" placeholder="Ciudad 2"/>
-        <input id="lat2" type="text" class="input" placeholder="Latitud"/>
-        <input id="lon2" type="text" class="input" placeholder="Longitud"/>
+        <input id="city2" type="text" placeholder="Ciudad 2" />
+        <input id="lat2" type="text" class="input" placeholder="Latitud" />
+        <input id="lon2" type="text" class="input" placeholder="Longitud" />
         <button id="btn">Calculate</button>
-        <h3 id="text-result"></h3>
       </div>
+      <h3 id="text-result"></h3>
     </section>
   </body>
 </html>

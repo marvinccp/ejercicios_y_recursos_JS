@@ -60,6 +60,6 @@ const btn = document.getElementById("btn").addEventListener("click", () => {
   let cityTwo = document.getElementById("city2").value;
   let textResult = document.getElementById("text-result");
 
-  textResult.textContent = `La distancia entre ${cityOne} y ${cityTwo} es: ${result1}`;
+  textResult.textContent = `La distancia entre ${cityOne} y ${cityTwo} es: ${result1} Kms`;
   console.log(result1);
 });
