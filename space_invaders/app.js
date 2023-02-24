@@ -1,5 +1,6 @@
 const grid = document.querySelector(".grid");
-const currentShooterI = 200;
+let currentShooterI = 195;
+const width = 15;
 
 //create squares(escene)
 for (let i = 0; i < 225; i++) {
@@ -29,12 +30,16 @@ const shooter = squares[currentShooterI].classList.add("shooter");
 
 //move shooter
 const moveShooter = (e) => {
-  const shooter = squares[currentShooterI].classList.remove("shooter");
+  squares[currentShooterI].classList.remove("shooter");
   switch (e.key) {
     case "ArrowLeft":
       if (currentShooterI % width !== 0) currentShooterI -= 1;
       break;
     case "ArrowRight":
       if (currentShooterI % width < width - 1) currentShooterI += 1;
+      break;
   }
+  squares[currentShooterI].classList.add("shooter");
 };
+
+document.addEventListener("keydown", moveShooter);
