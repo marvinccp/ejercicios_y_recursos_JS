@@ -14,8 +14,24 @@
 .invader{
     background-color: rgb(165, 42, 144);
     border-radius: 15px;
+    /* background-image: url('./assets/images/invader.png'); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .shooter{
     background-color: rgb(97, 139, 30);
+    /* background-image: url('./assets/images/shooter.png'); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.laser {
+    background-color: rgb(216, 216, 45);
+    border-radius: 12px;
+}
+.boom{
+    background-color: red;
 }
