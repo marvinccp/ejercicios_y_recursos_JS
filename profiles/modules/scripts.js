@@ -2,9 +2,9 @@ import { profiles } from './profiles.js'
 
 //card info
 const img = document.querySelector("#person-img");
-const name = document.querySelector("#author");
+const author = document.querySelector("#author");
 const job = document.querySelector("#job");
-const text = document.querySelector("#info");
+const info = document.querySelector("#info");
 
 //buttons
 const prevBtn = document.querySelector("#prev");
