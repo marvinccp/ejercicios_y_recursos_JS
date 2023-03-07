@@ -9,6 +9,12 @@ let invadersId;
 let goingRight = true;
 let results = 0;
 
+//sounds
+const invader = new Audio("./assets/sounds/invader.wav");
+const gameOver = new Audio("./assets/sounds/gameOver.wav");
+const shootRay = new Audio("./assets/sounds/shoot.wav");
+const gameMusic = new Audio('./assets/sounds/gameMusic.mp3')
+
 //create squares(escene)
 for (let i = 0; i < 225; i++) {
   const square = document.createElement("div");
@@ -32,8 +38,8 @@ const draw = () => {
     }
   }
 };
+draw()
 
-draw();
 
 //remove invaders
 const remove = () => {
@@ -101,12 +107,16 @@ const moveInvaders = () => {
   if (squares[currentShooterI].classList.contains("invader", "shooter")) {
     console.log("game over");
     resultDisplay.innerHTML = "Game Over";
+    gameOver.play();
+    gameMusic.pause();
     clearInterval(invadersId);
   }
 
   for (let i = 0; i < alienInvaders.length; i++) {
-    if (alienInvaders > squares.length) {
+    if (alienInvaders > 301) {
       resultDisplay.innerHTML = "Game Over";
+      gameOver.play();
+      gameMusic.pause()
       clearInterval(invadersId);
     }
   }
@@ -117,9 +127,15 @@ const moveInvaders = () => {
   }
 };
 
-// setIntervalId
-invadersId = setInterval(moveInvaders, 500);
-//
+//start game
+const start = document.querySelector(".start");
+start.addEventListener("click", ()=>{
+  // setIntervalId
+  invadersId = setInterval(moveInvaders, 500);
+  gameMusic.play()
+  //
+});
+
 
 const shoot = (e) => {
   let laserId;
@@ -128,13 +144,14 @@ const shoot = (e) => {
   const moveLaser = () => {
     squares[currentLaserI].classList.remove("laser");
     currentLaserI -= width;
-   
+
     squares[currentLaserI].classList.add("laser");
 
     if (squares[currentLaserI].classList.contains("invader")) {
       squares[currentLaserI].classList.remove("laser");
       squares[currentLaserI].classList.remove("invader");
       squares[currentLaserI].classList.add("boom");
+      invader.play();
 
       setTimeout(() => squares[currentLaserI].classList.remove("boom"), 200);
       clearInterval(laserId);
@@ -150,6 +167,7 @@ const shoot = (e) => {
   switch (e.key) {
     case "ArrowUp":
       laserId = setInterval(moveLaser, 150);
+      shootRay.play();
   }
 };
 
