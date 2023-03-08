@@ -1,13 +1,14 @@
 "use strict";
 
+//capturar video ó imagen
 const video = document.querySelector(".video");
 const canvas = document.querySelector(".canvas");
+
+//tomar foto
 const button = document.querySelector(".start-btn");
+
+//mostrar foto
 const photo = document.querySelector(".photo");
-const buttonCancel = document.querySelector(".buttonCancel");
-let takePhoto;
-
-
 
 //constrains
 /*
@@ -16,37 +17,34 @@ audio que solicitamos
 */
 
 const constraints = {
+  video: { width: 420, height: 340 },
   audio: false,
-  video: {width:420, height:340},
 };
 
 //acceso a la webcam
 /*
 Aquí recibimos la respuesta del navegador, es una promesa
  */
-
-const init = async () => {
+const getVideo = async () => {
   try {
     const stream = await navigator.mediaDevices.getUserMedia(constraints);
-    console.log(stream);
     handleSucces(stream);
+    console.log(stream);
   } catch (error) {
     console.log(error);
   }
 };
 
-//
+//3. -----------> si la promesa tiene exito
 const handleSucces = (stream) => {
-  window.stream = stream;
   video.srcObject = stream;
   video.play();
 };
 
-//
-init();
+//4.------------>Llamada a la función get
+getVideo();
 
-//
-
+//4. ----------> Button y foto
 button.addEventListener("click", () => {
   let context = canvas.getContext("2d");
   context.drawImage(video, 0, 0, 420, 340);
