@@ -21,6 +21,7 @@ const constraints = {
   audio: false,
 };
 
+
 //acceso a la webcam
 /*
 Aquí recibimos la respuesta del navegador, es una promesa
